@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "tauri-ts-react-router-sqlite-twcss",
+  "productName": "pos-mobile-app",
   "version": "0.1.0",
-  "identifier": "com.jet.tauri-ts-react-router-sqlite-twcss",
+  "identifier": "com.jet.pos-mobile-app",
   "build": {
     "beforeDevCommand": "bun run dev",
     "devUrl": "http://localhost:3030",
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "tauri-ts-react-router-sqlite-twcss",
+        "title": "pos-mobile-app",
         "width": 800,
         "height": 600
       }
