@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    tauri_ts_react_router_sqlite_twcss_lib::run()
+    pos_mobile_app_lib::run()
 }

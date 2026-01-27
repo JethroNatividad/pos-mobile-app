@@ -15,10 +15,10 @@ val tauriProperties = Properties().apply {
 
 android {
     compileSdk = 36
-    namespace = "com.jet.tauri_ts_react_router_sqlite_twcss"
+    namespace = "com.jet.pos_mobile_app"
     defaultConfig {
         manifestPlaceholders["usesCleartextTraffic"] = "false"
-        applicationId = "com.jet.tauri_ts_react_router_sqlite_twcss"
+        applicationId = "com.jet.pos_mobile_app"
         minSdk = 24
         targetSdk = 36
         versionCode = tauriProperties.getProperty("tauri.android.versionCode", "1").toInt()

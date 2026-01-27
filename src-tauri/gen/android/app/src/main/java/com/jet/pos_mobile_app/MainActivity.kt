@@ -1,4 +1,4 @@
-package com.jet.tauri_ts_react_router_sqlite_twcss
+package com.jet.pos_mobile_app
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
