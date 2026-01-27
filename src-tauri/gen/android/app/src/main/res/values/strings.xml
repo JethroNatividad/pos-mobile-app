@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">tauri-ts-react-router-sqlite-twcss</string>
-    <string name="main_activity_title">tauri-ts-react-router-sqlite-twcss</string>
+    <string name="app_name">pos-mobile-app</string>
+    <string name="main_activity_title">pos-mobile-app</string>
 </resources>
