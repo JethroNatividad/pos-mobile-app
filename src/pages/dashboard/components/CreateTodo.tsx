@@ -1,5 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { createTodo, type Todo } from "../../../api/todos";
+import { createTodo, type Todo } from "@/api/todos";
 
 type Props = {
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;

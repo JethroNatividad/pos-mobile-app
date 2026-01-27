@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router";
-import { getTodos, type Todo as TodoType } from "../../api/todos";
+import { getTodos, type Todo as TodoType } from "@/api/todos";
 import CreateTodo from "./components/CreateTodo";
 import Todo from "./components/Todo";
 

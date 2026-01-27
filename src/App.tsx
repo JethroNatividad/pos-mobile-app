@@ -1,8 +1,9 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import reactLogo from "@/assets/react.svg";
 import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
 import { NavLink } from "react-router";
+import { Button } from "@/components/ui/button";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -69,6 +70,8 @@ function App() {
         </button>
       </form>
       <p>{greetMsg}</p>
+
+      <Button>Hello TEST</Button>
     </main>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Todo as TodoType, updateTodo, deleteTodo } from "../../../api/todos";
+import { Todo as TodoType, updateTodo, deleteTodo } from "@/api/todos";
 
 type Props = {
   todo: TodoType;
