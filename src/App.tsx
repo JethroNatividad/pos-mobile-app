@@ -24,6 +24,16 @@ function App() {
         >
           Dashboard
         </NavLink>
+
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-blue-500" : "text-black"
+          }
+          to="/setup"
+          end
+        >
+          Setup
+        </NavLink>
       </nav>
 
       <Button>Hello TEST</Button>

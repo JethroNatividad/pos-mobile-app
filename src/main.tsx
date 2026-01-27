@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "@/App";
 import Dashboard from "@/pages/dashboard/dashboard";
 import { BrowserRouter, Routes, Route } from "react-router";
+import Setup from "@/pages/auth/setup";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -11,6 +12,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <Route path="/" element={<App />} />
 
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/setup" element={<Setup />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
