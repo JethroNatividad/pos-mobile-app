@@ -12,7 +12,7 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(
             tauri_plugin_sql::Builder::default()
-                .add_migrations("sqlite:app.db", migrations)
+                .add_migrations("sqlite:pos.db", migrations)
                 .build(),
         )
         .plugin(tauri_plugin_opener::init())
