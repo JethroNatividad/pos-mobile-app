@@ -36,10 +36,6 @@ pub fn run() {
         .plugin(
             tauri_plugin_sql::Builder::default()
                 .add_migrations("sqlite:auth.db", auth_migrations)
-                .build(),
-        )
-        .plugin(
-            tauri_plugin_sql::Builder::default()
                 .add_migrations("sqlite:pos.db", pos_migrations)
                 .build(),
         )
