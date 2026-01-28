@@ -1,10 +1,18 @@
 import Database from "@tauri-apps/plugin-sql";
 
-let db: Database | null = null;
+let authDb: Database | null = null;
+let posDb: Database | null = null;
 
-export const loadDb = async () => {
-  if (!db) {
-    db = await Database.load("sqlite:app.db");
+export const loadAuthDb = async () => {
+  if (!authDb) {
+    authDb = await Database.load("sqlite:auth.db");
   }
-  return db;
+  return authDb;
+};
+
+export const loadPosDb = async () => {
+  if (!posDb) {
+    posDb = await Database.load("sqlite:pos.db");
+  }
+  return posDb;
 };
