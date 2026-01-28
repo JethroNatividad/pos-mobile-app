@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { PinInput } from "./components/PinInput";
+import { createUser } from "@/api/users";
 
 type PinFormData = {
   pin: string;
@@ -58,13 +59,23 @@ export default function Setup() {
     setStep("pin");
   };
 
-  const onSubmit = (data: PinFormData) => {
+  const onSubmit = async (data: PinFormData) => {
     if (data.pin !== data.confirmPin) {
       setError("confirmPin", {
         type: "manual",
         message: "PINs do not match. Please try again.",
       });
       setValue("confirmPin", "");
+      return;
+    }
+
+    try {
+      await createUser("admin", "admin", data.pin);
+    } catch (error) {
+      setError("confirmPin", {
+        type: "manual",
+        message: `Failed to create user. ${error}`,
+      });
       return;
     }
 
