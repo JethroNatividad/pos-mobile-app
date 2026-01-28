@@ -84,11 +84,13 @@ export default function Setup() {
               ? "Create a 6-digit PIN to secure your account"
               : "Re-enter your PIN to confirm"}
           </CardDescription>
-          {errors.confirmPin && (
-            <p className="text-sm text-destructive mt-2">
-              {errors.confirmPin.message}
-            </p>
-          )}
+          <div className="min-h-6">
+            {errors.confirmPin && (
+              <p className="text-sm text-destructive">
+                {errors.confirmPin.message}
+              </p>
+            )}
+          </div>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)}>
