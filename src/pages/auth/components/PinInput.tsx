@@ -5,14 +5,12 @@ interface PinInputProps {
   value: string;
   maxLength?: number;
   onValueChange: (value: string) => void;
-  error?: string;
 }
 
 export function PinInput({
   value,
   maxLength = 6,
   onValueChange,
-  error,
 }: PinInputProps) {
   const handleNumberClick = (num: string) => {
     if (value.length < maxLength) {
@@ -27,9 +25,6 @@ export function PinInput({
   return (
     <div>
       <PinDots length={maxLength} filledCount={value.length} />
-      {error && (
-        <p className="text-sm text-destructive text-center mb-4">{error}</p>
-      )}
       <NumberPad
         onNumberClick={handleNumberClick}
         onDelete={handleDelete}
