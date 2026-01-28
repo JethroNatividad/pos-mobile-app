@@ -1,22 +1,22 @@
 mod migrations;
-// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-#[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
-}
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
-    let migrations = migrations::get_migrations();
+    let auth_migrations = migrations::get_auth_migrations();
+    let pos_migrations = migrations::get_pos_migrations();
 
     tauri::Builder::default()
         .plugin(
             tauri_plugin_sql::Builder::default()
-                .add_migrations("sqlite:pos.db", migrations)
+                .add_migrations("sqlite:auth.db", auth_migrations)
+                .build(),
+        )
+        .plugin(
+            tauri_plugin_sql::Builder::default()
+                .add_migrations("sqlite:pos.db", pos_migrations)
                 .build(),
         )
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![greet])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
