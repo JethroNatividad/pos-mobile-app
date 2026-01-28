@@ -2,14 +2,6 @@ import { invoke } from "@tauri-apps/api/core";
 
 import { loadAuthDb } from "../database";
 
-// sql: "CREATE TABLE IF NOT EXISTS users (
-//                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-//                 name TEXT NOT NULL,
-//                 role TEXT CHECK( role IN ('admin', 'cashier') ) NOT NULL,
-//                 pin_hash TEXT NOT NULL,
-//                 created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-//             );"
-
 export interface User {
   id: number;
   name: string;
