@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import {
   Card,
@@ -17,6 +18,7 @@ type PinFormData = {
 };
 
 export default function Setup() {
+  const navigate = useNavigate();
   const [step, setStep] = useState<"pin" | "confirm">("pin");
 
   const {
@@ -71,6 +73,7 @@ export default function Setup() {
 
     try {
       await createUser("admin", "admin", data.pin);
+      navigate("/", { replace: true });
     } catch (error) {
       setError("confirmPin", {
         type: "manual",
@@ -78,9 +81,6 @@ export default function Setup() {
       });
       return;
     }
-
-    // TODO: Implement PIN setup logic
-    console.log("PIN Setup:", data);
   };
 
   return (
