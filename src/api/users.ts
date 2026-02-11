@@ -15,6 +15,15 @@ export const getUsers = async (): Promise<User[]> => {
   return await db.select<User[]>("SELECT * FROM users");
 };
 
+export const hasAdmin = async (): Promise<boolean> => {
+  const db = await loadAuthDb();
+  const result = await db.select<User[]>(
+    "SELECT * FROM users WHERE role = $1",
+    ["admin"],
+  );
+  return result.length > 0;
+};
+
 export const createUser = async (
   name: string,
   role: "admin" | "cashier",
@@ -23,12 +32,9 @@ export const createUser = async (
   //  if role admin exists, throw error
   const db = await loadAuthDb();
 
-  const existingAdmins = await db.select<User[]>(
-    "SELECT * FROM users WHERE role = $1",
-    ["admin"],
-  );
+  const hasExistingAdmin = await hasAdmin();
 
-  if (role === "admin" && existingAdmins.length > 0) {
+  if (role === "admin" && hasExistingAdmin) {
     throw new Error("An admin user already exists.");
   }
 
