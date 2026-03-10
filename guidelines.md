@@ -10,6 +10,9 @@ The app features Authentication, User/Item/Category Management, Core POS functio
 
 # Architectural Guidelines
 
+## General Philosophy
+- **Simplicity First:** Always use the simplest solution possible. Avoid over-engineering, premature optimization, and unnecessary abstractions. Write clean, readable code that solves the immediate problem directly.
+
 ## Frontend (React / TypeScript)
 - **Mobile-First Design:** All UI components and layouts must be responsive and optimized for mobile screens first, scaling up if necessary.
 - **Component Reusability:** Always scan existing code and the Shadcn UI library before creating new components. Do not reinvent the wheel.
@@ -22,6 +25,7 @@ The app features Authentication, User/Item/Category Management, Core POS functio
 - **Hardware Integration:** Interactions with thermal printers and cash drawers must be handled natively in Rust. Do not attempt to use browser-based printing or web serial APIs unless explicitly requested.
 
 # STRICT "DO NOT" CONSTRAINTS
+- **DO NOT** over-engineer. If a simple, straightforward solution works, do not implement a complex design pattern or heavy abstraction just for the sake of it.
 - **DO NOT** use Tauri v1 syntax, imports, or plugins. Ensure all Tauri code aligns with v2 documentation (`@tauri-apps/api/core`, etc.).
 - **DO NOT** use plain `useState` for form inputs or validation; strictly enforce `react-hook-form`.
 - **DO NOT** create duplicate UI components. If a button, modal, or input exists in the Shadcn UI folder, reuse it.
