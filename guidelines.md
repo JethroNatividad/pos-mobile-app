@@ -4,7 +4,8 @@ The app features Authentication, User/Item/Category Management, Core POS functio
 
 # Tech Stack
 - **Core Framework:** Tauri v2 (Strictly v2, DO NOT use v1 APIs or plugins)
-- **Frontend:** React, TypeScript, React Router, TailwindCSS
+- **Package Manager:** Bun (Strictly use Bun instead of npm, yarn, or pnpm)
+- **Frontend:** React, TypeScript, React Router, TailwindCSS, Lucide Icons
 - **UI Components:** Shadcn UI, React Hook Form (for forms)
 - **Backend / System:** Rust, SQLite
 
@@ -15,7 +16,7 @@ The app features Authentication, User/Item/Category Management, Core POS functio
 
 ## Frontend (React / TypeScript)
 - **Mobile-First Design:** All UI components and layouts must be responsive and optimized for mobile screens first, scaling up if necessary.
-- **Component Reusability:** Always scan existing code and the Shadcn UI library before creating new components. Do not reinvent the wheel.
+- **Component Reusability:** Always scan existing code and the Shadcn UI library before creating new components. If a required component is not currently in the project but exists in Shadcn UI, install it via the Shadcn CLI using Bun. Do not reinvent the wheel.
 - **State & Forms:** Form state must be managed exclusively with `react-hook-form`. Validate inputs cleanly.
 - **Styling:** Use TailwindCSS utility classes. Keep complex style logic encapsulated in standard Shadcn UI patterns.
 
@@ -25,8 +26,9 @@ The app features Authentication, User/Item/Category Management, Core POS functio
 - **Hardware Integration:** Interactions with thermal printers and cash drawers must be handled natively in Rust. Do not attempt to use browser-based printing or web serial APIs unless explicitly requested.
 
 # STRICT "DO NOT" CONSTRAINTS
+- **DO NOT** use `npm`, `yarn`, or `pnpm` for package management or running scripts. Strictly use `bun`.
 - **DO NOT** over-engineer. If a simple, straightforward solution works, do not implement a complex design pattern or heavy abstraction just for the sake of it.
 - **DO NOT** use Tauri v1 syntax, imports, or plugins. Ensure all Tauri code aligns with v2 documentation (`@tauri-apps/api/core`, etc.).
 - **DO NOT** use plain `useState` for form inputs or validation; strictly enforce `react-hook-form`.
-- **DO NOT** create duplicate UI components. If a button, modal, or input exists in the Shadcn UI folder, reuse it.
+- **DO NOT** create custom UI components for standard elements. If a button, modal, or input exists in Shadcn UI, install and reuse it. Do not reinvent it.
 - **DO NOT** attempt to use Node.js specific libraries (like `fs` or `path`) in the React frontend. Use Tauri's provided frontend APIs or Rust backend commands for system-level operations.
