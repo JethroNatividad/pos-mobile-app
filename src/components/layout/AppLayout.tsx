@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink, Outlet, useLocation } from "react-router";
 import {
     Menu,
@@ -37,7 +37,7 @@ export default function AppLayout() {
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col">
             {/* Top Navigation Bar */}
-            <header className="bg-white border-b h-16 flex items-center px-4 shrink-0 shadow-sm sticky top-0 z-10">
+            <header className="bg-white border-b h-[calc(4rem+env(safe-area-inset-top))] pt-[env(safe-area-inset-top)] pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))] flex items-center shrink-0 shadow-sm sticky top-0 z-10">
                 <Sheet open={open} onOpenChange={setOpen}>
                     <SheetTrigger asChild>
                         <Button variant="ghost" size="icon" className="mr-2">
@@ -45,7 +45,7 @@ export default function AppLayout() {
                             <span className="sr-only">Toggle Sidebar</span>
                         </Button>
                     </SheetTrigger>
-                    <SheetContent side="left" className="w-72 p-0 flex flex-col">
+                    <SheetContent side="left" className="w-72 flex flex-col pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)]">
                         <SheetHeader className="p-4 border-b text-left">
                             <SheetTitle className="text-xl font-bold tracking-tight">POS APP</SheetTitle>
                         </SheetHeader>
@@ -148,7 +148,7 @@ export default function AppLayout() {
             </header>
 
             {/* Main Content Area */}
-            <main className="flex-1 overflow-auto">
+            <main className="flex-1 overflow-auto pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
                 <Outlet />
             </main>
         </div>
