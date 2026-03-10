@@ -9,7 +9,7 @@ import AuthGuard from "@/components/AuthGuard";
 
 import AppLayout from "@/components/layout/AppLayout";
 import POSPage from "@/pages/pos";
-import ItemsPage from "@/pages/inventory/items";
+import ItemsPage from "@/pages/inventory/items/index";
 import CategoriesPage from "@/pages/inventory/categories";
 import DiscountsPage from "@/pages/inventory/discounts";
 import PaymentMethodsPage from "@/pages/inventory/payment-methods";
